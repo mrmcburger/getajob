@@ -1,0 +1,7 @@
+parameters:
+#    mrmcburger_getajob.example.class: Mrmcburger\GetajobBundle\Example
+
+services:
+#    mrmcburger_getajob.example:
+#        class: %mrmcburger_getajob.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

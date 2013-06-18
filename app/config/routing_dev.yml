@@ -12,3 +12,10 @@ _configurator:
 
 _main:
     resource: routing.yml
+
+homepage:
+    pattern:  /
+    defaults: { _controller: MrmcburgerGetajobBundle:Home:index }
+
+getajob_bundle:
+    resource: "@MrmcburgerGetajobBundle/Resources/config/routing.yml"

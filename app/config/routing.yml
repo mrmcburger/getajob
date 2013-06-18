@@ -1,0 +1,4 @@
+mrmcburger_getajob:
+    resource: "@MrmcburgerGetajobBundle/Resources/config/routing.yml"
+    prefix:   /
+

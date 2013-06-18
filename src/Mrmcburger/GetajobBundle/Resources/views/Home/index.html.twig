@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block stylesheets %}
+  <link href="{{ asset('bundles/mrmcburgergetajob/css/home.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block sidebar %}
+  <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="">GetAJob</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes Entreprises<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Ajouter</a></li>
+                  <li><a href="#">Classement</a></li>
+                  <li><a href="#">Lister</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes Candidatures<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Ajouter</a></li>
+                  <li><a href="#">Lister</a></li>
+                  <li><a href="#">Historique</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes Entretiens<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Ajouter</a></li>
+                  <li><a href="#">Planning</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Mes Feedbacks</a></li>
+              <li><a href="#">Mes Critères</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="hero-unit">
+    <h1>Get A Job</h1>
+    <p><br />Le but de cette application est de vous permettre de trouver l'entreprise qui correspond à vos besoins.<br /><br />
+      Dans un premier temps vous pouvez rentrer les entreprises qui vous intéressent et les noter d'après une série de critères. Selon l'importance que vous apportez à chaque critère vous pourrez ensuite accéder à un classement des entreprises vous convenant le mieux.<br /><br />Dans un second temps vous pourrez sauvegarder toutes les candidatures que vous faîtes, un planning des entretiens décrochés et enfin une liste des retours, conseils que vous avez eu.<br /><br /><br />
+      &Agrave; vous!
+      <a href="<%= url_for new_company_path %>" class="pull-right btn btn-primary btn-large">Entrer une entreprise</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
