@@ -1,0 +1,5 @@
+default:
+    extensions:
+        Behat\MinkExtension\Extension:
+            base_url: 'http://192.168.1.55/getajob/web/app_dev.php'
+            goutte: ~

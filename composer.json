@@ -1,8 +1,4 @@
 {
-    "name": "symfony/framework-standard-edition",
-    "license": "MIT",
-    "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-0": { "": "src/" }
     },
@@ -19,6 +15,11 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0"
+    },
+    "require-dev": {
+        "behat/symfony2-extension": "*",
+        "behat/mink-extension": "*",
+        "behat/mink-goutte-driver": "*"
     },
     "scripts": {
         "post-install-cmd": [
