@@ -1,4 +1,6 @@
-mrmcburger_getajob:
-    resource: "@MrmcburgerGetajobBundle/Resources/config/routing.yml"
-    prefix:   /
+homepage:
+    pattern:  /
+    defaults: { _controller: MrmcburgerGetajobBundle:Home:index }
 
+getajob_bundle:
+    resource: "@MrmcburgerGetajobBundle/Resources/config/routing.yml"

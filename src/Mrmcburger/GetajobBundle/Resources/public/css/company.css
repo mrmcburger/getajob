@@ -1,0 +1,119 @@
+form#new_company
+{
+    padding-top: 40px;
+}
+
+div#new_company_right
+{
+}
+
+div#new_company_left
+{
+    float: left;
+}
+
+div#new_company_left_left
+{
+    float: left;
+    width: 110px;
+}
+
+div#new_company_left_right
+{
+    float: right;
+    width: 430px;
+}
+
+div#new_company_right_right
+{
+    float: left;
+    width: 350px;
+}
+
+div#new_company_right_left
+{
+    float: left;
+    width: 200px;
+}
+
+.hero-unit-company
+{
+    width: 1170px;
+    height: 420px;
+}
+
+.form-error
+{
+    color: red;
+    font-size: 11px;
+}
+
+#mrmcburger_getajobbundle_companytype_name-label
+{
+    padding-top: 6px;
+}
+
+#mrmcburger_getajobbundle_companytype_sector-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_companytype_address-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_companytype_presentation-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_companytype_numbers-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_companytype_phone-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_companytype_mail-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_companytype_add_company
+{
+    margin-top: 15px;
+}
+
+#mrmcburger_getajobbundle_companytype_companycriteria_displacement-label
+{
+    padding-top: 6px;
+}
+
+#mrmcburger_getajobbundle_companytype_companycriteria_celebrity-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_companytype_companycriteria_missionInterest-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_companytype_companycriteria_salaryExpectation-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_companytype_companycriteria_workConditions-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_companytype_companycriteria_evolutionPossibilities-label
+{
+    padding-top: 15px;
+}
