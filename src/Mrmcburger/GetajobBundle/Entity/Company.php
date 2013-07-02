@@ -4,6 +4,7 @@ namespace Mrmcburger\GetajobBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
@@ -12,8 +13,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Mrmcburger\GetajobBundle\Entity\CompanyRepository")
  * @UniqueEntity("name")
- * @UniqueEntity("phone")
- * @UniqueEntity("mail")
  */
 class Company
 {
@@ -86,12 +85,12 @@ class Company
     private $mail;
 
     /* Validateurs */
-    public function isMailValid(ExecutionContextInterface $context)
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        if (!preg_match('[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}', $this->getMail()))
-        {
-            $context->addViolationAt('numbers', 'Mail non valide', array(), null);
-        }
+        $metadata->addPropertyConstraint('mail', new Assert\Email(array(
+            'message' => "'{{ value }}' n'est pas un email valide.",
+            'checkMX' => true,
+        )));
     }
 
     /**

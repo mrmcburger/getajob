@@ -1,7 +1,7 @@
 Feature: Homepage
-    In order to access to getajob
-    As an anonymous user
-    I need to be able to access the website's homepage
+    In order to be able to use the website
+    As a website user
+    I need to be able to access the homepage
 
 Scenario: Access homepage
     Given I am on "/index"
