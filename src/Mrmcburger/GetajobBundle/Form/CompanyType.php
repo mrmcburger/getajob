@@ -15,7 +15,18 @@ class CompanyType extends AbstractType
             ->add('name',           'text', array('required' => true, 'label' => 'Nom'))
             ->add('sector',          'text', array('required' => true, 'label' => 'Secteur'))
             ->add('address',       'text', array('required' => true, 'label' => 'Adresse'))
-            ->add('presentation', 'text', array('required' => false, 'label' => 'Présentation'))
+            ->add(
+                'presentation',
+                 'textarea',
+                 array(
+                    'required' => false,
+                    'label'       => 'Présentation',
+                    'attr'         => array(
+                        'rows' => '5',
+                        'cols'  => '35'
+                    )
+                )
+            )
             ->add('numbers',      'text', array('required' => false, 'label' => 'Effectif'))
             ->add('phone',          'text', array('required' => false, 'label' => 'Téléphone'))
             ->add('mail',             'email', array('required' => false, 'label' => 'Email'))

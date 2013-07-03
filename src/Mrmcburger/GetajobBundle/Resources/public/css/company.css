@@ -39,7 +39,7 @@ div#new_company_right_left
 .hero-unit-company
 {
     width: 1170px;
-    height: 420px;
+    height: 520px;
 }
 
 .form-error
@@ -85,7 +85,7 @@ div#new_company_right_left
 
 #mrmcburger_getajobbundle_companytype_add_company
 {
-    margin-top: 15px;
+    margin-top: 90px;
 }
 
 #mrmcburger_getajobbundle_companytype_companycriteria_displacement-label
