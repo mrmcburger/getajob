@@ -110,6 +110,10 @@
 {% endblock %}
 
 {% block javascripts %}
-  <script type="text/javascript">var id_company={{ company.id }};</script>
+  <script type="text/javascript">
+     {% if company is not empty %}
+       var id_company= {{ company.id }};
+    {% endif %}
+  </script>
   <script src="{{ asset('bundles/mrmcburgergetajob/js/company.js') }}" type="text/javascript" ></script>
 {% endblock %}
