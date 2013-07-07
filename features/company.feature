@@ -13,7 +13,9 @@ Scenario: Add a company
     And I fill in "mrmcburger_getajobbundle_companytype_sector" with "BehatTest Sector"
     And I fill in "mrmcburger_getajobbundle_companytype_address" with "BehatTest Address"
     And I press "mrmcburger_getajobbundle_companytype_add_company"
-    Then I should see "Le but de cette application est de vous permettre"
+    Then I should see "BehatTest"
+    And I should see "BehatTest Sector"
+    And I should see "BehatTest Address"
 
 Scenario: Add a company already existing
     Given I am on "/newcompany"

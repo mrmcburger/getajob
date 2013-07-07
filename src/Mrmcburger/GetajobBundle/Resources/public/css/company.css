@@ -117,3 +117,33 @@ div#new_company_right_left
 {
     padding-top: 15px;
 }
+
+.content
+{
+    width: 1120px;
+    min-height:720px;
+    padding-top: 40px;
+    margin : auto;
+    background-color: #EEEEEE;
+}
+
+#show-company
+{
+    padding-top: 30px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+#show-company-header-left
+{
+    float: left;
+    width: 300px;
+    padding-left: 200px;
+}
+
+#show-company-header
+{
+    padding-bottom: 40px;
+    padding-top: 20px;
+}

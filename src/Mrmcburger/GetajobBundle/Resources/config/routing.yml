@@ -5,3 +5,11 @@ mrmcburger_getajob_homepage:
 mrmcburger_getajob_new_company:
     pattern:  /newcompany
     defaults: { _controller: MrmcburgerGetajobBundle:Company:new }
+
+mrmcburger_getajob_show_company:
+    pattern:  /showcompany/{id}
+    defaults: { _controller: MrmcburgerGetajobBundle:Company:show }
+
+mrmcburger_getajob_modify_company:
+    pattern:  /modifycompany/{id}
+    defaults: { _controller: MrmcburgerGetajobBundle:Company:modify }

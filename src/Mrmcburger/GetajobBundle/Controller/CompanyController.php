@@ -24,12 +24,27 @@ class CompanyController extends Controller
                 $em->persist($company);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('mrmcburger_getajob_homepage'));
+                return $this->redirect($this->generateUrl('mrmcburger_getajob_show_company', array('id' => $company->getId())));
             }
         }
 
         return $this->render('MrmcburgerGetajobBundle:Company:new.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+
+    public function showAction($id)
+    {
+        $repository = $this->getDoctrine()
+                         ->getManager()
+                         ->getRepository('MrmcburgerGetajobBundle:Company');
+
+        $company = $repository->getCompany($id);
+
+        return $this->render('MrmcburgerGetajobBundle:Company:show.html.twig',
+                                        array(
+                                            'company' => $company
+                                        )
+                                );
     }
 }
