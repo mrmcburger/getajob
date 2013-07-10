@@ -61,7 +61,15 @@
           <div id="new_company_left_left">
             {{ form_label(form.name) }}
             {{ form_label(form.sector) }}
-            {{ form_label(form.address) }}
+            <div id="newcompany-address-label">
+              <span id="address-label">Adresse :<br /></span>
+              {{ form_label(form.address.number) }}
+              {{ form_label(form.address.type) }}
+              {{ form_label(form.address.name) }}
+              {{ form_label(form.address.additional) }}
+              {{ form_label(form.address.zip) }}
+              {{ form_label(form.address.city) }}
+            </div>
             {{ form_label(form.numbers) }}
             {{ form_label(form.phone) }}
             {{ form_label(form.mail) }}
@@ -72,7 +80,14 @@
           <div id="new_company_left_right">
             {{ form_widget(form.name) }} {{ form_errors(form.name) }}
             {{ form_widget(form.sector) }} {{ form_errors(form.sector) }}
-            {{ form_widget(form.address) }} {{ form_errors(form.address) }}
+            <div id="newcompany-address-widget">
+              {{ form_widget(form.address.number) }} {{ form_errors(form.address.number) }}
+              {{ form_widget(form.address.type) }} {{ form_errors(form.address.type) }}
+              {{ form_widget(form.address.name) }} {{ form_errors(form.address.name) }}
+              {{ form_widget(form.address.additional) }} {{ form_errors(form.address.additional) }}
+              {{ form_widget(form.address.zip) }} {{ form_errors(form.address.zip) }}
+              {{ form_widget(form.address.city) }} {{ form_errors(form.address.city) }}
+          </div>
             {{ form_widget(form.numbers) }} {{ form_errors(form.numbers) }}
             {{ form_widget(form.phone) }} {{ form_errors(form.phone) }}
             {{ form_widget(form.mail) }} {{ form_errors(form.mail) }}

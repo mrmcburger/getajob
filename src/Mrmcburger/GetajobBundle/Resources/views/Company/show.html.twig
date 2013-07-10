@@ -70,7 +70,7 @@
         <div id="new_company_left">
           <div id="new_company_left_left">
                 Secteur :<br /><br />
-                Adresse :<br /><br />
+                Adresse :<br /><br /><br />{% if company.address.additional is not null %}<br />{% endif %}
                 Effectif :<br /><br />
                 Téléphone :<br /><br />
                 E-mail :<br /><br />
@@ -78,7 +78,13 @@
           </div>
           <div id="new_company_left_right">
                 {{ company.sector }}<br /><br />
-                {{ company.address }}<br /><br />
+                <div id="show-company-address">
+                  {{ company.address.number }} {{ company.address.type }} {{ company.address.name }}<br />
+                  {% if company.address.additional is not null %}
+                    {{ company.address.additional }}<br />
+                  {% endif %}
+                   {{ company.address.zip }} {{ company.address.city }}
+                </div><br />
                 {{ company.numbers }}<br /><br />
                 {{ company.phone }}<br /><br />
                 {{ company.mail }}<br /><br />

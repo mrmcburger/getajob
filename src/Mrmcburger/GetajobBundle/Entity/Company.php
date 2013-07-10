@@ -49,11 +49,10 @@ class Company
     private $sector;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="address", type="string", length=150, nullable=false)
-     * @Assert\NotNull()
-     */
+    * @ORM\OneToOne(targetEntity="Mrmcburger\GetajobBundle\Entity\Address", cascade={"persist"})
+    * @ORM\JoinColumn(nullable=false)
+    * @Assert\NotNull()
+    */
     private $address;
 
     /**

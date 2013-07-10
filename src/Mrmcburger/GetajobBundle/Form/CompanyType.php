@@ -14,7 +14,7 @@ class CompanyType extends AbstractType
         $builder
             ->add('name',           'text', array('required' => true, 'label' => 'Nom'))
             ->add('sector',          'text', array('required' => true, 'label' => 'Secteur'))
-            ->add('address',       'text', array('required' => true, 'label' => 'Adresse'))
+            ->add('address',       new AddressType())
             ->add(
                 'presentation',
                  'textarea',
@@ -38,7 +38,8 @@ class CompanyType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Mrmcburger\GetajobBundle\Entity\Company'
+            'data_class' => 'Mrmcburger\GetajobBundle\Entity\Company',
+            'cascade_validation' => true
         ));
     }
 

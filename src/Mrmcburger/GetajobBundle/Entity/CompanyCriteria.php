@@ -27,6 +27,7 @@ class CompanyCriteria
      *
      * @ORM\Column(name="displacement", type="integer", nullable=false)
      * @Assert\NotNull()
+     * @Assert\Regex("/^\d+$/")
      */
     private $displacement;
 
@@ -35,6 +36,7 @@ class CompanyCriteria
      *
      * @ORM\Column(name="celebrity", type="integer", nullable=false)
      * @Assert\NotNull()
+     * @Assert\Regex("/^\d+$/")
      */
     private $celebrity;
 
@@ -43,6 +45,7 @@ class CompanyCriteria
      *
      * @ORM\Column(name="missionInterest", type="integer", nullable=false)
      * @Assert\NotNull()
+     * @Assert\Regex("/^\d+$/")
      */
     private $missionInterest;
 
@@ -51,6 +54,7 @@ class CompanyCriteria
      *
      * @ORM\Column(name="salaryExpectation", type="integer", nullable=false)
      * @Assert\NotNull()
+     * @Assert\Regex("/^\d+$/")
      */
     private $salaryExpectation;
 
@@ -59,6 +63,7 @@ class CompanyCriteria
      *
      * @ORM\Column(name="workConditions", type="integer", nullable=false)
      * @Assert\NotNull()
+     * @Assert\Regex("/^\d+$/")
      */
     private $workConditions;
 
@@ -67,6 +72,7 @@ class CompanyCriteria
      *
      * @ORM\Column(name="evolutionPossibilities", type="integer", nullable=false)
      * @Assert\NotNull()
+     * @Assert\Regex("/^\d+$/")
      */
     private $evolutionPossibilities;
 
