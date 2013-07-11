@@ -47,4 +47,37 @@ class CompanyController extends Controller
                                         )
                                 );
     }
+
+    public function modifyAction($id)
+    {
+        $repository = $this->getDoctrine()
+                         ->getManager()
+                         ->getRepository('MrmcburgerGetajobBundle:Company');
+
+        $company = $repository->getCompany($id);
+
+        $form = $this->createForm(new CompanyType(CompanyType::EDIT_MODE), $company);
+
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST')
+        {
+            $form->bind($request);
+
+            if ($form->isValid())
+            {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($company);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('mrmcburger_getajob_show_company', array('id' => $company->getId())));
+            }
+        }
+
+        return $this->render('MrmcburgerGetajobBundle:Company:modify.html.twig',
+                                array(
+                                     'form' => $form->createView(),
+                                     'company' => $company
+                                )
+                        );
+    }
 }

@@ -3,10 +3,6 @@ form#new_company
     padding-top: 40px;
 }
 
-div#new_company_right
-{
-}
-
 div#new_company_left
 {
     float: left;
@@ -39,7 +35,7 @@ div#new_company_right_left
 .hero-unit-company
 {
     width: 1170px;
-    height: 740px;
+    height: 760px;
 }
 
 .form-error
@@ -194,4 +190,20 @@ div#new_company_right_left
 {
     font-size: 14px;
     font-weight: normal;
+}
+
+#modify_company #new_company_left  #new_company_left_right #mrmcburger_getajobbundle_companytype_sector
+{
+    margin-top: 12px;
+}
+
+#modify_company  #new_company_left  #new_company_left_right #newcompany-address-widget
+{
+    padding-top: 33px;
+    padding-bottom: 20px;
+}
+
+#modify_company  #new_company_right
+{
+    padding-top: 5px;
 }

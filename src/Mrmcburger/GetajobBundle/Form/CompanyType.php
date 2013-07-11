@@ -7,12 +7,32 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Mrmcburger\GetajobBundle\Form\CompanyCriteriaType;
 
+
 class CompanyType extends AbstractType
 {
+/**
+     * Register mode
+     */
+    const REGISTER_MODE = 'Registration';
+
+    /**
+     * Edit mode
+     */
+    const EDIT_MODE = 'Edition';
+
+    public function __construct($mode = self::REGISTER_MODE)
+    {
+        $this->mode = $mode;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        if($this->mode == self::REGISTER_MODE)
+        {
+            $builder->add('name',           'text', array('required' => true, 'label' => 'Nom'));
+        }
+
         $builder
-            ->add('name',           'text', array('required' => true, 'label' => 'Nom'))
             ->add('sector',          'text', array('required' => true, 'label' => 'Secteur'))
             ->add('address',       new AddressType())
             ->add(
