@@ -50,9 +50,16 @@ class CompanyType extends AbstractType
             ->add('numbers',      'text', array('required' => false, 'label' => 'Effectif'))
             ->add('phone',          'text', array('required' => false, 'label' => 'Téléphone'))
             ->add('mail',             'email', array('required' => false, 'label' => 'Email'))
-            ->add('companycriteria', new CompanyCriteriaType())
-            ->add('add_company', 'submit', array('label' => 'Ajouter'))
-    ;
+            ->add('companycriteria', new CompanyCriteriaType());
+
+            if($this->mode == self::REGISTER_MODE)
+            {
+                 $builder->add('add_company', 'submit', array('label' => 'Ajouter'));
+            }
+            else
+            {
+                $builder->add('add_company', 'submit', array('label' => 'Modifier'));
+            }
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
