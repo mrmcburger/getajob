@@ -166,3 +166,8 @@ Scenario: Modifiy a company with a bad zip code (alphabetic character)
     And I fill in "mrmcburger_getajobbundle_companytype_address_city" with "Behat"
     And I press "mrmcburger_getajobbundle_companytype_add_company"
     Then I should see "Cette valeur n'est pas valide"
+
+Scenario: Delete a company with a bad zip code (alphabetic character)
+    Given I am on "/showcompany/BehatTest"
+    And I press "mrmcburger_getajobbundle_companydeletetype_delete_company"
+    Then I should see "Le but de cette application est de vous permettre"
