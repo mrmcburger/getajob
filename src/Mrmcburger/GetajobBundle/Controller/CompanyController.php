@@ -5,6 +5,7 @@ namespace Mrmcburger\GetajobBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Mrmcburger\GetajobBundle\Entity\Company;
 use Mrmcburger\GetajobBundle\Form\CompanyType;
+use Mrmcburger\GetajobBundle\Form\CompanyDeleteType;
 
 class CompanyController extends Controller
 {
@@ -40,10 +41,12 @@ class CompanyController extends Controller
                          ->getRepository('MrmcburgerGetajobBundle:Company');
 
         $company = $repository->getCompany($id);
+        $form = $this->createForm(new CompanyDeleteType, $company);
 
         return $this->render('MrmcburgerGetajobBundle:Company:show.html.twig',
                                         array(
-                                            'company' => $company
+                                            'company' => $company,
+                                            'form' => $form->createView()
                                         )
                                 );
     }
@@ -79,5 +82,29 @@ class CompanyController extends Controller
                                      'company' => $company
                                 )
                         );
+    }
+
+    public function deleteAction()
+    {
+        $request = $this->get('request');
+        $form = $this->createForm(new CompanyDeleteType);
+        $form->bind($request);
+
+        $repository = $this->getDoctrine()
+                         ->getManager()
+                         ->getRepository('MrmcburgerGetajobBundle:Company');
+
+        $company = $repository->getCompany($form["id"]->getData());
+
+        if ($form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($company);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('mrmcburger_getajob_homepage'));
+        }
+
+        return $this->redirect($this->generateUrl('mrmcburger_getajob_show_company', array('id' => $company->getId())));
     }
 }

@@ -89,6 +89,14 @@
                 {{ company.phone }}<br /><br />
                 {{ company.mail }}<br /><br />
                 {{ company.presentation }}
+
+              <div id="delete_company">
+                  <form method="post" action="{{ path('mrmcburger_getajob_delete_company') }}">
+                      {{ form_widget(form.delete_company) }}
+                      {{ form_widget(form.id) }}
+                      {{ form_widget(form._token) }}
+                  </form>
+              </div>
           </div>
         </div>
           <div id="new_company_right">

@@ -7,7 +7,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Mrmcburger\GetajobBundle\Form\CompanyCriteriaType;
 
-
 class CompanyType extends AbstractType
 {
 /**

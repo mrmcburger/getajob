@@ -26,7 +26,7 @@ class Company
     private $id;
 
     /**
-    * @ORM\OneToOne(targetEntity="Mrmcburger\GetajobBundle\Entity\CompanyCriteria", cascade={"persist"})
+    * @ORM\OneToOne(targetEntity="Mrmcburger\GetajobBundle\Entity\CompanyCriteria",cascade={"persist", "remove"})
     * @ORM\JoinColumn(nullable=false)
     * @Assert\NotNull()
     */
@@ -49,7 +49,7 @@ class Company
     private $sector;
 
     /**
-    * @ORM\OneToOne(targetEntity="Mrmcburger\GetajobBundle\Entity\Address", cascade={"persist"})
+    * @ORM\OneToOne(targetEntity="Mrmcburger\GetajobBundle\Entity\Address", cascade={"persist", "remove"})
     * @ORM\JoinColumn(nullable=false)
     * @Assert\NotNull()
     */
