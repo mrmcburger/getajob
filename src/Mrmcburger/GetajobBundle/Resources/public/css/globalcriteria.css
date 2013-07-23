@@ -1,0 +1,42 @@
+.hero-unit-globalcriteria
+{
+    width: 1170px;
+    height: 760px;
+}
+
+#show-globalcriteria-header-left
+{
+    float: left;
+    width: 300px;
+    padding-left: 200px;
+}
+
+#show-globalcriteria-header
+{
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+
+div#show_globalcriteria_left
+{
+    float: left;
+}
+
+div#show_globalcriteria_left_left
+{
+    float: left;
+    width: 200px;
+}
+
+div#show_globalcriteria_left_right
+{
+    float: right;
+    width: 500px;
+}
+
+div#show-globalcriteria
+{
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+}

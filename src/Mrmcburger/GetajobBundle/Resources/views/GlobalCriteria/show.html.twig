@@ -1,9 +1,9 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Entreprise - Voir{% endblock %}
 
 {% block stylesheets %}
-  <link href="{{ asset('bundles/mrmcburgergetajob/css/home.css') }}" type="text/css" rel="stylesheet" />
+  <link href="{{ asset('bundles/mrmcburgergetajob/css/globalcriteria.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
 {% block sidebar %}
@@ -42,7 +42,7 @@
                 </ul>
               </li>
               <li><a href="#">Mes Retours</a></li>
-              <li><a href="{{ path('mrmcburger_getajob_show_global_criteria') }}">Mes Critères</a></li>
+              <li class="active"><a href="{{ path('mrmcburger_getajob_show_global_criteria') }}">Mes Critères</a></li>
             </ul>
           </div>
         </div>
@@ -51,14 +51,42 @@
 {% endblock %}
 
 {% block body %}
+
 <div class="container">
-  <div class="hero-unit">
-    <h1>Get A Job</h1>
-    <p><br />Le but de cette application est de vous permettre de trouver l'entreprise qui correspond à vos besoins.<br /><br />
-      Dans un premier temps vous pouvez rentrer les entreprises qui vous intéressent et les noter d'après une série de critères. Selon l'importance que vous apportez à chaque critère vous pourrez ensuite accéder à un classement des entreprises vous convenant le mieux.<br /><br />Dans un second temps vous pourrez sauvegarder toutes les candidatures que vous faîtes, un planning des entretiens décrochés et enfin une liste des retours, conseils que vous avez eu.<br /><br /><br />
-      &Agrave; vous!
-      <a href="{{ path('mrmcburger_getajob_new_company') }}" class="pull-right btn btn-primary btn-large">Ajouter une entreprise</a>
-    </p>
+  <div class="hero-unit hero-unit-globalcriteria content">
+      <h1>Mes critères de sélection</h1>
+      <div id="show-globalcriteria">
+        <div id="show-globalcriteria-header">
+          <div id="show-globalcriteria-header-left">
+            <button id="see-button" class="btn btn-inverse" disabled>Voir</button>
+          </div>
+          <div id="show-globalcriteria-header-right">
+             <button id="modify-button" class="btn btn-primary">Modifier</button>
+          </div>
+        </div>
+        <div id="show_globalcriteria_left">
+          <div id="show_globalcriteria_left_left">
+                Déplacement :<br /><br />
+                Renom :<br /><br />
+                Interêt de la mission :<br /><br />
+                Attente salariale :<br /><br />
+                Condition de travail :<br /><br />
+                Possibilité d'évolutions :
+          </div>
+          <div id="show_globalcriteria_left_right">
+                {{ globalCriteria.displacement }}<br /><br />
+                {{ globalCriteria.celebrity }}<br /><br />
+                {{ globalCriteria.missionInterest }}<br /><br />
+                {{ globalCriteria.salaryExpectation }}<br /><br />
+                {{ globalCriteria.workConditions }}<br /><br />
+                {{ globalCriteria.evolutionPossibilities }}
+          </div>
+        </div>
+     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+  <script src="{{ asset('bundles/mrmcburgergetajob/js/globalcriteria.js') }}" type="text/javascript" ></script>
 {% endblock %}

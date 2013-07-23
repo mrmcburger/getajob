@@ -1,7 +1,12 @@
 parameters:
-#    mrmcburger_getajob.example.class: Mrmcburger\GetajobBundle\Example
-
+    globalcriteria_manager.class: Mrmcburger\GetajobBundle\Services\GlobalCriteriaManager
+    globalcriteria_factory.class: Mrmcburger\GetajobBundle\Services\GlobalCriteriaFactory
 services:
-#    mrmcburger_getajob.example:
-#        class: %mrmcburger_getajob.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    globalcriteria_factory:
+        class:                  "%globalcriteria_factory.class%"
+        arguments: [@doctrine.orm.entity_manager]
+    globalcriteria_manager:
+        class:                 "%globalcriteria_manager.class%"
+        arguments: [@doctrine.orm.entity_manager]
+        factory_service: globalcriteria_factory
+        factory_method:   get
