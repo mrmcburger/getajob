@@ -40,3 +40,50 @@ div#show-globalcriteria
     font-weight: normal;
     line-height: 20px;
 }
+
+div#modify_globalcriteria_left_right
+{
+    width: 430px;
+    float: right;
+}
+
+div#modify_globalcriteria_left_left
+{
+    width: 200px;
+    float: left;
+}
+
+div#modify_globalcriteria_left
+{
+    width: 630px;
+}
+
+#mrmcburger_getajobbundle_globalcriteriatype_displacement-label
+{
+    padding-top: 5px;
+}
+
+#mrmcburger_getajobbundle_globalcriteriatype_celebrity-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_globalcriteriatype_missionInterest-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_globalcriteriatype_salaryExpectation-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_globalcriteriatype_workConditions-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_globalcriteriatype_evolutionPossibilities-label
+{
+    padding-top: 15px;
+}

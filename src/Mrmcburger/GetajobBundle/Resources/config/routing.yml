@@ -15,9 +15,13 @@ mrmcburger_getajob_modify_company:
     defaults: { _controller: MrmcburgerGetajobBundle:Company:modify }
 
 mrmcburger_getajob_delete_company:
-    pattern:  /deletecompany/
+    pattern:  /deletecompany
     defaults: { _controller: MrmcburgerGetajobBundle:Company:delete }
 
 mrmcburger_getajob_show_global_criteria:
     pattern:  /showglobalcriteria
     defaults: { _controller: MrmcburgerGetajobBundle:GlobalCriteria:show }
+
+mrmcburger_getajob_modify_global_criteria:
+    pattern:  /modifyglobalcriteria
+    defaults: { _controller: MrmcburgerGetajobBundle:GlobalCriteria:modify }

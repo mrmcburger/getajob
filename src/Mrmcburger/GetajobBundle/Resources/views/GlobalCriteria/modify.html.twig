@@ -1,6 +1,8 @@
+{% form_theme form 'MrmcburgerGetajobBundle:Form:fields.html.twig' %}
+
 {% extends '::base.html.twig' %}
 
-{% block title %}Critères - Voir{% endblock %}
+{% block title %}Critères - Modifier{% endblock %}
 
 {% block stylesheets %}
   <link href="{{ asset('bundles/mrmcburgergetajob/css/globalcriteria.css') }}" type="text/css" rel="stylesheet" />
@@ -58,30 +60,34 @@
       <div id="show-globalcriteria">
         <div id="show-globalcriteria-header">
           <div id="show-globalcriteria-header-left">
-            <button id="see-button" class="btn btn-inverse" disabled>Voir</button>
+            <button id="see-button" class="btn btn-primary">Voir</button>
           </div>
           <div id="show-globalcriteria-header-right">
-             <button id="modify-button" class="btn btn-primary">Modifier</button>
+             <button id="modify-button" class="btn btn-inverse" disabled>Modifier</button>
           </div>
         </div>
-        <div id="show_globalcriteria_left">
-          <div id="show_globalcriteria_left_left">
-                Déplacement :<br /><br />
-                Renom :<br /><br />
-                Interêt de la mission :<br /><br />
-                Attente salariale :<br /><br />
-                Condition de travail :<br /><br />
-                Possibilité d'évolutions :
+        <form id="modify_globalcriteria" method="post" action="">
+          <div id="modify_globalcriteria_left">
+            <div id="modify_globalcriteria_left_left">
+                  {{ form_label(form.displacement) }}
+                  {{ form_label(form.celebrity) }}
+                  {{ form_label(form.missionInterest) }}
+                  {{ form_label(form.salaryExpectation) }}
+                  {{ form_label(form.workConditions) }}
+                  {{ form_label(form.evolutionPossibilities) }}
+            </div>
+            <div id="modify_globalcriteria_left_right">
+                  {{ form_widget(form.displacement) }} {{ form_errors(form.displacement) }}
+                  {{ form_widget(form.celebrity) }} {{ form_errors(form.celebrity) }}
+                  {{ form_widget(form.missionInterest) }} {{ form_errors(form.missionInterest) }}
+                  {{ form_widget(form.salaryExpectation) }} {{ form_errors(form.salaryExpectation) }}
+                  {{ form_widget(form.workConditions) }} {{ form_errors(form.workConditions) }}
+                  {{ form_widget(form.evolutionPossibilities) }} {{ form_errors(form.evolutionPossibilities) }}<br /><br />
+                  {{ form_widget(form.modify_globalcriteria) }}
+                  {{ form_widget(form._token) }}
+            </div>
           </div>
-          <div id="show_globalcriteria_left_right">
-                {{ globalCriteria.displacement }}<br /><br />
-                {{ globalCriteria.celebrity }}<br /><br />
-                {{ globalCriteria.missionInterest }}<br /><br />
-                {{ globalCriteria.salaryExpectation }}<br /><br />
-                {{ globalCriteria.workConditions }}<br /><br />
-                {{ globalCriteria.evolutionPossibilities }}
-          </div>
-        </div>
+        </form>
      </div>
   </div>
 </div>
