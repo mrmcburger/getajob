@@ -13,9 +13,15 @@ class GlobalCriteriaFactory
 
     public function get()
     {
-        $globalCriteria = new GlobalCriteria();
-        $this->em->persist($globalCriteria);
-        $this->em->flush();
+        $globalCriteria = $this->em->getRepository('MrmcburgerGetajobBundle:GlobalCriteria')
+                                        ->findOneById(1);
+
+        if(!isset($globalCriteria))
+        {
+            $globalCriteria = new GlobalCriteria();
+            $this->em->persist($globalCriteria);
+            $this->em->flush();
+        }
 
         return $globalCriteria;
     }

@@ -17,6 +17,8 @@ class GlobalCriteriaManager
         $globalCriteria = $this->em->getRepository('MrmcburgerGetajobBundle:GlobalCriteria')
                                         ->findById(1);
 
+        var_dump($globalCriteria);
+
         return $globalCriteria;
     }
 }
