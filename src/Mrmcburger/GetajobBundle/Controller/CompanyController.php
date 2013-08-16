@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Mrmcburger\GetajobBundle\Entity\Company;
 use Mrmcburger\GetajobBundle\Form\CompanyType;
 use Mrmcburger\GetajobBundle\Form\CompanyDeleteType;
+use Doctrine\ORM\Mapping as ORM;
 
 class CompanyController extends Controller
 {
@@ -106,5 +107,21 @@ class CompanyController extends Controller
         }
 
         return $this->redirect($this->generateUrl('mrmcburger_getajob_show_company', array('id' => $company->getId())));
+    }
+
+    public function listAction()
+    {
+        $em    = $this->get('doctrine.orm.entity_manager');
+        $dql   = "SELECT a FROM MrmcburgerGetajobBundle:Company a order by a.name";
+        $query = $em->createQuery($dql);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query,
+            $this->get('request')->query->get('page', 1),
+            15
+        );
+
+        return $this->render('MrmcburgerGetajobBundle:Company:list.html.twig', array('pagination' => $pagination));
     }
 }

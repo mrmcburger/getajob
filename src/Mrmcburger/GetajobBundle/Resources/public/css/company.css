@@ -212,3 +212,21 @@ div#new_company_right_left
 {
     padding-top: 60px;
 }
+
+#list-company
+{
+    margin-top: 50px;
+}
+
+.hero-unit-listcompany
+{
+    width: 1170px;
+    height: 1000px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.navigation
+{
+    margin-top: 10px;
+}

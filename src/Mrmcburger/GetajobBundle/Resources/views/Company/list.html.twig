@@ -1,9 +1,9 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Entreprise - Lister{% endblock %}
 
 {% block stylesheets %}
-  <link href="{{ asset('bundles/mrmcburgergetajob/css/home.css') }}" type="text/css" rel="stylesheet" />
+  <link href="{{ asset('bundles/mrmcburgergetajob/css/company.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
 {% block sidebar %}
@@ -18,7 +18,7 @@
           <a class="brand" href="{{ path('mrmcburger_getajob_homepage') }}">GetAJob</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="dropdown">
+              <li class="dropdown active">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes Entreprises<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="{{ path('mrmcburger_getajob_new_company') }}">Ajouter</a></li>
@@ -52,13 +52,29 @@
 
 {% block body %}
 <div class="container">
-  <div class="hero-unit">
-    <h1>Get A Job</h1>
-    <p><br />Le but de cette application est de vous permettre de trouver l'entreprise qui correspond à vos besoins.<br /><br />
-      Dans un premier temps vous pouvez rentrer les entreprises qui vous intéressent et les noter d'après une série de critères. Selon l'importance que vous apportez à chaque critère vous pourrez ensuite accéder à un classement des entreprises vous convenant le mieux.<br /><br />Dans un second temps vous pourrez sauvegarder toutes les candidatures que vous faîtes, un planning des entretiens décrochés et enfin une liste des retours, conseils que vous avez eu.<br /><br /><br />
-      &Agrave; vous!
-      <a href="{{ path('mrmcburger_getajob_new_company') }}" class="pull-right btn btn-primary btn-large">Ajouter une entreprise</a>
-    </p>
+ <div class="hero-unit hero-unit-listcompany">
+    <h1>Lister les entreprises</h1>
+    <table class="table table-striped" id="list-company">
+      <tr>
+        <th>Nom</th>
+        <th>Secteur</th>
+        <th>Adresse</th>
+        <th>E-mail</th>
+        <th>Téléphone</th>
+      </tr>
+      {% for company in pagination %}
+      <tr>
+          <td>{{ company.name }}</td>
+          <td>{{ company.sector }}</td>
+          <td>{{company.address.number}} {{company.address.type}} {{company.address.name}}<br />{{company.address.additional}} {{company.address.zip}} {{company.address.city}}</td>
+          <td>{{ company.mail }}</td>
+          <td>{{ company.phone }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
   </div>
 </div>
 {% endblock %}
