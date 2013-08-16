@@ -64,7 +64,7 @@
       </tr>
       {% for company in pagination %}
       <tr>
-          <td>{{ company.name }}</td>
+          <td><a href="{{ path('mrmcburger_getajob_show_company', { 'id': company.id }) }}">{{ company.name }}</a></td>
           <td>{{ company.sector }}</td>
           <td>{{company.address.number}} {{company.address.type}} {{company.address.name}}<br />{{company.address.additional}} {{company.address.zip}} {{company.address.city}}</td>
           <td>{{ company.mail }}</td>
