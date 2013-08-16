@@ -15,7 +15,7 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "knplabs/knp-paginator-bundle": "dev-master",
+        "white-october/pagerfanta-bundle": "1.0.*",
         "friendsofsymfony/jsrouting-bundle": "~1.1"
     },
     "require-dev": {
