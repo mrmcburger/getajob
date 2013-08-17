@@ -7,6 +7,8 @@ use Mrmcburger\GetajobBundle\Entity\Company;
 use Mrmcburger\GetajobBundle\Form\CompanyType;
 use Mrmcburger\GetajobBundle\Form\CompanyDeleteType;
 use Doctrine\ORM\Mapping as ORM;
+use Pagerfanta\Pagerfanta;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 
 class CompanyController extends Controller
 {
@@ -109,19 +111,18 @@ class CompanyController extends Controller
         return $this->redirect($this->generateUrl('mrmcburger_getajob_show_company', array('id' => $company->getId())));
     }
 
-    public function listAction()
+    public function listAction($page)
     {
         $em    = $this->get('doctrine.orm.entity_manager');
         $dql   = "SELECT a FROM MrmcburgerGetajobBundle:Company a order by a.name";
         $query = $em->createQuery($dql);
 
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $query,
-            $this->get('request')->query->get('page', 1),
-            15
-        );
+        $adapter = new DoctrineORMAdapter($query, true);
+        $pager   = new Pagerfanta($adapter);
 
-        return $this->render('MrmcburgerGetajobBundle:Company:list.html.twig', array('pagination' => $pagination));
+        $pager->setMaxPerPage(15);
+        $pager->setCurrentPage($page, true, true);
+
+        return $this->render('MrmcburgerGetajobBundle:Company:list.html.twig', array('pager' => $pager));
     }
 }

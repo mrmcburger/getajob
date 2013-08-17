@@ -19,7 +19,7 @@ mrmcburger_getajob_delete_company:
     defaults: { _controller: MrmcburgerGetajobBundle:Company:delete }
 
 mrmcburger_getajob_list_company:
-    pattern:  /listcompanies
+    pattern:  /listcompanies/{page}
     defaults: { _controller: MrmcburgerGetajobBundle:Company:list }
 
 mrmcburger_getajob_show_global_criteria:
