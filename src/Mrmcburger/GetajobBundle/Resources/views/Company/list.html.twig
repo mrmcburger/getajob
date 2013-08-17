@@ -62,7 +62,7 @@
         <th>E-mail</th>
         <th>Téléphone</th>
       </tr>
-      {% for company in pagination %}
+      {% for company in pager %}
       <tr>
           <td><a href="{{ path('mrmcburger_getajob_show_company', { 'id': company.id }) }}">{{ company.name }}</a></td>
           <td>{{ company.sector }}</td>
@@ -73,7 +73,7 @@
       {% endfor %}
     </table>
     <div class="navigation">
-        {{ knp_pagination_render(pagination) }}
+        {{ pagerfanta(pager) }}
     </div>
   </div>
 </div>

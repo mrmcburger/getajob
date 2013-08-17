@@ -1,5 +1,5 @@
 mrmcburger_getajob_homepage:
-    pattern:  /index
+    pattern:  /
     defaults: { _controller: MrmcburgerGetajobBundle:Home:index }
 
 mrmcburger_getajob_new_company:
