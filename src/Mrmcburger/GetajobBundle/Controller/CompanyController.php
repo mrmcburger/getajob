@@ -9,6 +9,7 @@ use Mrmcburger\GetajobBundle\Form\CompanyDeleteType;
 use Doctrine\ORM\Mapping as ORM;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Adapter\ArrayAdapter;
 
 class CompanyController extends Controller
 {
@@ -124,5 +125,24 @@ class CompanyController extends Controller
         $pager->setCurrentPage($page, true, true);
 
         return $this->render('MrmcburgerGetajobBundle:Company:list.html.twig', array('pager' => $pager));
+    }
+
+    public function rankAction($page)
+    {
+        $companyRepository = $this->getDoctrine()
+                         ->getManager()
+                         ->getRepository('MrmcburgerGetajobBundle:Company');
+
+        $globalCriteria = $this->container->get('globalcriteria_manager');
+
+        $sortedCompanies = $companyRepository->getRankedCompanies($globalCriteria);
+
+        $adapter = new ArrayAdapter($sortedCompanies);
+        $pager   = new Pagerfanta($adapter);
+
+        $pager->setMaxPerPage(15);
+        $pager->setCurrentPage($page, true, true);
+
+        return $this->render('MrmcburgerGetajobBundle:Company:rank.html.twig', array('pager' => $pager));
     }
 }

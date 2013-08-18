@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Entreprise - Lister{% endblock %}
+{% block title %}Entreprise - Classement{% endblock %}
 
 {% block stylesheets %}
   <link href="{{ asset('bundles/mrmcburgergetajob/css/company.css') }}" type="text/css" rel="stylesheet" />
@@ -61,6 +61,7 @@
         <th>Adresse</th>
         <th>E-mail</th>
         <th>Téléphone</th>
+        <th>Moyenne</th>
       </tr>
       {% for company in pager %}
       <tr>
@@ -69,6 +70,7 @@
           <td>{{company.address.number}} {{company.address.type}} {{company.address.name}}<br />{{company.address.additional}} {{company.address.zip}} {{company.address.city}}</td>
           <td>{{ company.mail }}</td>
           <td>{{ company.phone }}</td>
+          <td>{{ company.average }}</td>
       </tr>
       {% endfor %}
     </table>

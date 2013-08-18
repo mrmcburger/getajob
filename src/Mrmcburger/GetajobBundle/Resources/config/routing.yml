@@ -22,6 +22,10 @@ mrmcburger_getajob_list_company:
     pattern:  /listcompanies/{page}
     defaults: { _controller: MrmcburgerGetajobBundle:Company:list }
 
+mrmcburger_getajob_rank_company:
+    pattern:  /rankcompanies/{page}
+    defaults: { _controller: MrmcburgerGetajobBundle:Company:rank }
+
 mrmcburger_getajob_show_global_criteria:
     pattern:  /showglobalcriteria
     defaults: { _controller: MrmcburgerGetajobBundle:GlobalCriteria:show }
