@@ -26,11 +26,28 @@ class ApplicationController extends Controller
                 $em->persist($application);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('mrmcburger_getajob_homepage'));
+                return $this->redirect($this->generateUrl('mrmcburger_getajob_show_application', array('id' => $application->getId())));
             }
         }
         return $this->render('MrmcburgerGetajobBundle:Application:new.html.twig', array(
             'form' => $form->createView()));
+    }
+
+    public function showAction($id)
+    {
+        $repository = $this->getDoctrine()
+                         ->getManager()
+                         ->getRepository('MrmcburgerGetajobBundle:Application');
+
+        $application = $repository->getApplication($id);
+        //$form = $this->createForm(new CompanyDeleteType, $company);
+
+        return $this->render('MrmcburgerGetajobBundle:Application:show.html.twig',
+                                        array(
+                                            'application' => $application,
+                                           // 'form' => $form->createView()
+                                        )
+                                );
     }
 }
 

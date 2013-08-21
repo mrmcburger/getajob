@@ -1,0 +1,112 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Application - Voir{% endblock %}
+
+{% block stylesheets %}
+  <link href="{{ asset('bundles/mrmcburgergetajob/css/application.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block sidebar %}
+  <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="{{ path('mrmcburger_getajob_homepage') }}">GetAJob</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="dropdown active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes Entreprises<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{ path('mrmcburger_getajob_new_company') }}">Ajouter</a></li>
+                  <li><a href="{{ path('mrmcburger_getajob_list_company', { 'page': '1' }) }}">Lister</a></li>
+                  <li><a href="{{ path('mrmcburger_getajob_rank_company', { 'page': '1' }) }}">Classement</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes Candidatures<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{ path('mrmcburger_getajob_new_application') }}">Ajouter</a></li>
+                  <li><a href="#">Lister</a></li>
+                  <li><a href="#">Historique</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes Entretiens<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Ajouter</a></li>
+                  <li><a href="#">Planning</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Mes Retours</a></li>
+              <li><a href="{{ path('mrmcburger_getajob_show_global_criteria') }}">Mes Critères</a></li>
+            </ul>
+          </div>
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="hero-unit hero-unit-company content">
+    {% if application is empty %}
+      <h1>Candidature non trouvée</h1>
+    {% else %}
+      <h1>Candidature à {{ application.company.name }} ({{ application.date|date('d/m/Y') }})</h1>
+      <div id="show-application">
+        <div id="show-application-header">
+          <div id="show-application-header-left">
+            <button id="see-button" class="btn btn-inverse" disabled>Voir</button>
+          </div>
+          <div id="show-application-header-right">
+             <button id="modify-button" class="btn btn-primary">Modifier</button>
+          </div>
+        </div>
+        <div id="new_application_left">
+          <div id="new_application_left_left">
+                Nom du contact :<br /><br />
+                Moyen de contact :<br /><br />
+                Moyen de réponse attendu :<br /><br />
+                Date de réponse attendue :<br /><br />
+          </div>
+          <div id="new_application_left_right">
+                {{ application.contactName }}<br /><br />
+                {{ application.contactWay }}<br /><br />
+                {{ application.replyWay }}<br /><br />
+                {{ application.replyDate|date('d/m/Y') }}<br /><br />
+          </div>
+        </div>
+          <div id="new_application_right">
+            <div id="new_application_right_left">
+                  CV :<br /><br />
+                  Lettre de motivation :<br /><br />
+                  Commentaires :
+            </div>
+          <div id="new_application_right_right">
+                {% if application.cvPath is not empty %}
+                  <a href="{{ asset('uploads/cv/'~application.cvPath) }}">Disponible ici</a><br /><br />
+               {% endif %}
+               {% if application.applicationLetterPath is not empty %}
+                  <a href="{{ asset('uploads/application-letter/'~application.applicationLetterPath) }}">Disponible ici</a><br /><br />
+               {% endif %}
+               {{ application.comments }}<br /><br />
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript">
+     {% if application is not empty %}
+       var id_application= {{ application.id }};
+    {% endif %}
+  </script>
+  <script src="{{ asset('bundles/mrmcburgergetajob/js/application.js') }}" type="text/javascript" ></script>
+{% endblock %}

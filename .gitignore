@@ -6,7 +6,7 @@ vendor/*
 */logs/*
 */cache/*
 web/uploads/cv
-web/uploads/applicationLetter
+web/uploads/application-letter
 web/bundles/*
 
 # Configuration files

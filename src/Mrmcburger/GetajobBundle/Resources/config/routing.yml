@@ -37,3 +37,7 @@ mrmcburger_getajob_modify_global_criteria:
 mrmcburger_getajob_new_application:
     pattern:  /newapplication
     defaults: { _controller: MrmcburgerGetajobBundle:Application:new }
+
+mrmcburger_getajob_show_application:
+    pattern:  /showapplication/{id}
+    defaults: { _controller: MrmcburgerGetajobBundle:Application:show }

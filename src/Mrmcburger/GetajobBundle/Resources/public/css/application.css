@@ -23,7 +23,7 @@ div#new_application_left_right
 div#new_application_right_right
 {
     float: left;
-    width: 150px;
+    width: 340px;
 }
 
 div#new_application_right_left
@@ -71,4 +71,25 @@ div#new_application_right_left
 #mrmcburger_getajobbundle_applicationtype_applicationLetter-label
 {
     padding-top: 8px;
+}
+
+#show-application
+{
+    padding-top: 30px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+#show-application-header-left
+{
+    float: left;
+    width: 300px;
+    padding-left: 200px;
+}
+
+#show-application-header
+{
+    padding-bottom: 40px;
+    padding-top: 20px;
 }

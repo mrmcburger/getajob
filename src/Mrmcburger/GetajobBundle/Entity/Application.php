@@ -187,9 +187,9 @@ class Application
      * @param string $cv
      * @return Application
      */
-    public function setCv($cv)
+    public function setCvPath($cvPath)
     {
-        $this->cv = $cv;
+        $this->cvPath = $cvPath;
 
         return $this;
     }
@@ -199,9 +199,9 @@ class Application
      *
      * @return string
      */
-    public function getCv()
+    public function getCvPath()
     {
-        return $this->cv;
+        return $this->cvPath;
     }
 
     /**
@@ -210,9 +210,9 @@ class Application
      * @param string $applicationLetter
      * @return Application
      */
-    public function setApplicationLetter($applicationLetter)
+    public function setApplicationLetterPath($applicationLetterPath)
     {
-        $this->applicationLetter = $applicationLetter;
+        $this->applicationLetterPath = $applicationLetterPath;
 
         return $this;
     }
@@ -222,9 +222,9 @@ class Application
      *
      * @return string
      */
-    public function getApplicationLetter()
+    public function getApplicationLetterPath()
     {
-        return $this->applicationLetter;
+        return $this->applicationLetterPath;
     }
 
     /**
