@@ -285,4 +285,9 @@ class Company
     {
         return $this->mail;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

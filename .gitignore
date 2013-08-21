@@ -5,7 +5,8 @@ app/bootstrap*
 vendor/*
 */logs/*
 */cache/*
-web/uploads/*
+web/uploads/cv
+web/uploads/applicationLetter
 web/bundles/*
 
 # Configuration files

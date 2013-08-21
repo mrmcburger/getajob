@@ -1,0 +1,74 @@
+form#new_application
+{
+    padding-top: 40px;
+}
+
+div#new_application_left
+{
+    float: left;
+}
+
+div#new_application_left_left
+{
+    float: left;
+    width: 200px;
+}
+
+div#new_application_left_right
+{
+    float: right;
+    width: 430px;
+}
+
+div#new_application_right_right
+{
+    float: left;
+    width: 150px;
+}
+
+div#new_application_right_left
+{
+    float: left;
+    width: 200px;
+}
+
+.hero-unit-company
+{
+    width: 1170px;
+    height: 400px;
+}
+
+#mrmcburger_getajobbundle_applicationtype_contactName-label
+{
+    padding-top: 16px;
+}
+
+#mrmcburger_getajobbundle_applicationtype_replyDate-label
+{
+    padding-top: 16px;
+}
+
+#mrmcburger_getajobbundle_applicationtype_contactWay-label
+{
+    padding-top: 16px;
+}
+
+#mrmcburger_getajobbundle_applicationtype_replyWay-label
+{
+    padding-top: 16px;
+}
+
+#mrmcburger_getajobbundle_applicationtype_add_application
+{
+    margin-top: 20px;
+}
+
+#mrmcburger_getajobbundle_applicationtype_cv-label
+{
+    padding-top: 19px;
+}
+
+#mrmcburger_getajobbundle_applicationtype_applicationLetter-label
+{
+    padding-top: 8px;
+}

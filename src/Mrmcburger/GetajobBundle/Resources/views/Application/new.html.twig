@@ -1,9 +1,11 @@
+{% form_theme form 'MrmcburgerGetajobBundle:Form:fields.html.twig' %}
+
 {% extends '::base.html.twig' %}
 
-{% block title %}Entreprise - Lister{% endblock %}
+{% block title %}Entreprise - Candidature{% endblock %}
 
 {% block stylesheets %}
-  <link href="{{ asset('bundles/mrmcburgergetajob/css/company.css') }}" type="text/css" rel="stylesheet" />
+  <link href="{{ asset('bundles/mrmcburgergetajob/css/application.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
 {% block sidebar %}
@@ -18,7 +20,7 @@
           <a class="brand" href="{{ path('mrmcburger_getajob_homepage') }}">GetAJob</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="dropdown active">
+              <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes Entreprises<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="{{ path('mrmcburger_getajob_new_company') }}">Ajouter</a></li>
@@ -26,7 +28,7 @@
                   <li><a href="{{ path('mrmcburger_getajob_rank_company', { 'page': '1' }) }}">Classement</a></li>
                 </ul>
               </li>
-              <li class="dropdown">
+              <li class="dropdown  active">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes Candidatures<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="{{ path('mrmcburger_getajob_new_application') }}">Ajouter</a></li>
@@ -52,29 +54,41 @@
 
 {% block body %}
 <div class="container">
- <div class="hero-unit hero-unit-listcompany">
-    <h1>Lister les entreprises</h1>
-    <table class="table table-striped" id="list-company">
-      <tr>
-        <th>Nom</th>
-        <th>Secteur</th>
-        <th>Adresse</th>
-        <th>E-mail</th>
-        <th>Téléphone</th>
-      </tr>
-      {% for company in pager %}
-      <tr>
-          <td><a href="{{ path('mrmcburger_getajob_show_company', { 'id': company.id }) }}">{{ company.name }}</a></td>
-          <td>{{ company.sector }}</td>
-          <td>{{company.address.number}} {{company.address.type}} {{company.address.name}}<br />{{company.address.additional}} {{company.address.zip}} {{company.address.city}}</td>
-          <td>{{ company.mail }}</td>
-          <td>{{ company.phone }}</td>
-      </tr>
-      {% endfor %}
-    </table>
-    <div class="navigation">
-        {{ pagerfanta(pager) }}
-    </div>
-  </div>
+ <div class="hero-unit hero-unit-company">
+    <h1>Ajouter une candidature</h1>
+      <form id="new_application" method="post" action="" {{ form_enctype(form) }}>
+        <div id="new_application_left">
+          <div id="new_application_left_left">
+            {{ form_label(form.date) }}
+            {{ form_label(form.contactName) }}
+            {{ form_label(form.contactWay) }}
+            {{ form_label(form.replyWay) }}
+            {{ form_label(form.replyDate) }}
+            {{ form_widget(form.add_application) }}
+            {{ form_widget(form._token) }}
+          </div>
+          <div id="new_application_left_right">
+            {{ form_widget(form.date) }} {{ form_errors(form.date) }}
+            {{ form_widget(form.contactName) }} {{ form_errors(form.contactName) }}
+            {{ form_widget(form.contactWay) }} {{ form_errors(form.contactWay) }}
+            {{ form_widget(form.replyWay) }} {{ form_errors(form.replyWay) }}
+            {{ form_widget(form.replyDate) }} {{ form_errors(form.replyDate) }}
+          </div>
+        </div>
+        <div id="new_application_right">
+          <div id="new_application_right_left">
+            {{ form_label(form.company) }}
+            {{ form_label(form.cv) }}
+            {{ form_label(form.applicationLetter) }}
+            {{ form_label(form.comments) }}
+          </div>
+          <div id="new_application_right_right">
+            {{ form_widget(form.company) }} {{ form_errors(form.company) }}
+            {{ form_widget(form.cv) }} {{ form_errors(form.cv) }}
+            {{ form_widget(form.applicationLetter) }} {{ form_errors(form.applicationLetter) }}
+            {{ form_widget(form.comments) }} {{ form_errors(form.comments) }}
+          </div>
+        </div>
+      </form>
 </div>
 {% endblock %}
