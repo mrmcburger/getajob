@@ -78,6 +78,13 @@
                 {{ application.contactWay }}<br /><br />
                 {{ application.replyWay }}<br /><br />
                 {{ application.replyDate|date('d/m/Y') }}<br /><br />
+                <div id="delete_application">
+                  <form method="post" action="{{ path('mrmcburger_getajob_delete_application') }}">
+                      {{ form_widget(form.delete_application) }}
+                      {{ form_widget(form.id) }}
+                      {{ form_widget(form._token) }}
+                  </form>
+                </div>
           </div>
         </div>
           <div id="new_application_right">

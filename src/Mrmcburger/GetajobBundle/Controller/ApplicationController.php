@@ -5,6 +5,7 @@ namespace Mrmcburger\GetajobBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Mrmcburger\GetajobBundle\Entity\Application;
 use Mrmcburger\GetajobBundle\Form\ApplicationType;
+use Mrmcburger\GetajobBundle\Form\ApplicationDeleteType;
 
 class ApplicationController extends Controller
 {
@@ -40,12 +41,12 @@ class ApplicationController extends Controller
                          ->getRepository('MrmcburgerGetajobBundle:Application');
 
         $application = $repository->getApplication($id);
-        //$form = $this->createForm(new CompanyDeleteType, $company);
+        $form = $this->createForm(new ApplicationDeleteType, $application);
 
         return $this->render('MrmcburgerGetajobBundle:Application:show.html.twig',
                                         array(
                                             'application' => $application,
-                                           // 'form' => $form->createView()
+                                            'form' => $form->createView()
                                         )
                                 );
     }
@@ -81,6 +82,30 @@ class ApplicationController extends Controller
                                      'application' => $application
                                 )
                         );
+    }
+
+    public function deleteAction()
+    {
+        $request = $this->get('request');
+        $form = $this->createForm(new ApplicationDeleteType);
+        $form->bind($request);
+
+        $repository = $this->getDoctrine()
+                         ->getManager()
+                         ->getRepository('MrmcburgerGetajobBundle:Application');
+
+        $application = $repository->getApplication($form["id"]->getData());
+
+        if ($form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($application);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('mrmcburger_getajob_homepage'));
+        }
+
+        return $this->redirect($this->generateUrl('mrmcburger_getajob_show_application', array('id' => $application->getId())));
     }
 }
 ?>
