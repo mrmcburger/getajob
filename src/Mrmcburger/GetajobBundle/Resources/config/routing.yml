@@ -53,3 +53,7 @@ mrmcburger_getajob_delete_application:
 mrmcburger_getajob_list_application:
     pattern:  /listapplications/{page}
     defaults: { _controller: MrmcburgerGetajobBundle:Application:list }
+
+mrmcburger_getajob_history_application:
+    pattern:  /historyapplications/{page}
+    defaults: { _controller: MrmcburgerGetajobBundle:Application:history }

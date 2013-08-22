@@ -98,3 +98,16 @@ div#new_application_right_left
 {
     padding-top: 14px;
 }
+
+#list-application
+{
+    margin-top: 50px;
+}
+
+.hero-unit-listapplication
+{
+    width: 1170px;
+    height: 1000px;
+    font-size: 14px;
+    font-weight: normal;
+}

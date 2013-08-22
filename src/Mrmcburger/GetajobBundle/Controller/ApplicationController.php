@@ -126,5 +126,22 @@ class ApplicationController extends Controller
 
         return $this->render('MrmcburgerGetajobBundle:Application:list.html.twig', array('pager' => $pager));
     }
+
+    public function historyAction($page)
+    {
+        $today = date('Y-m-d');
+
+        $em    = $this->get('doctrine.orm.entity_manager');
+        $dql   = "SELECT a FROM MrmcburgerGetajobBundle:Application a where a.replyDate < '$today' order by a.date";
+        $query = $em->createQuery($dql);
+
+        $adapter = new DoctrineORMAdapter($query, true);
+        $pager   = new Pagerfanta($adapter);
+
+        $pager->setMaxPerPage(15);
+        $pager->setCurrentPage($page, true, true);
+
+        return $this->render('MrmcburgerGetajobBundle:Application:history.html.twig', array('pager' => $pager));
+    }
 }
 ?>
