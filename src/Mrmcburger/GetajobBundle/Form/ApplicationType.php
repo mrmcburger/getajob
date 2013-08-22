@@ -28,18 +28,19 @@ class ApplicationType extends AbstractType
     {
         if($this->mode == self::REGISTER_MODE)
         {
+            $builder
+                ->add('company', 'entity', array(
+                          'class' => 'MrmcburgerGetajobBundle:Company',
+                          'query_builder' => function(EntityRepository $er) {
+                                return $er->createQueryBuilder('c')
+                                               ->orderBy('c.name', 'ASC');
+                                }))
+                ->add('date',                   'date', array('required' => true, 'label' => 'Date de candidature', 'widget' => 'single_text'))
+                ->add('cv',                      'file',  array('label' => 'CV', 'required' => false))
+                ->add('applicationLetter', 'file',  array('label' => 'Lettre de motivation', 'required' => false));
         }
 
         $builder
-            ->add('company', 'entity', array(
-                      'class' => 'MrmcburgerGetajobBundle:Company',
-                      'query_builder' => function(EntityRepository $er) {
-                            return $er->createQueryBuilder('c')
-                                           ->orderBy('c.name', 'ASC');
-                            }))
-            ->add('date',                   'date', array('required' => true, 'label' => 'Date de candidature', 'widget' => 'single_text'))
-            ->add('cv',                      'file',  array('label' => 'CV', 'required' => false))
-            ->add('applicationLetter', 'file',  array('label' => 'Lettre de motivation', 'required' => false))
             ->add('contactName',      'text', array('required' => true, 'label' => 'Nom du contact'))
             ->add('contactWay', 'choice', array('label' => 'Moyen de contact', 'choices' =>  Application::$candidatureType, 'required' => false))
             ->add('replyWay', 'choice', array('label' => 'Moyen de réponse attendu', 'choices' =>  Application::$replyType, 'required' => false))

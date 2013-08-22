@@ -41,3 +41,7 @@ mrmcburger_getajob_new_application:
 mrmcburger_getajob_show_application:
     pattern:  /showapplication/{id}
     defaults: { _controller: MrmcburgerGetajobBundle:Application:show }
+
+mrmcburger_getajob_modify_application:
+    pattern:  /modifyapplication/{id}
+    defaults: { _controller: MrmcburgerGetajobBundle:Application:modify }

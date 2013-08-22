@@ -93,3 +93,8 @@ div#new_application_right_left
     padding-bottom: 40px;
     padding-top: 20px;
 }
+
+#modify_application #new_application_left #new_application_left_right
+{
+    padding-top: 14px;
+}
