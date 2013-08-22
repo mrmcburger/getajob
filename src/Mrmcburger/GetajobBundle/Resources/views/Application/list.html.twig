@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Entreprise - Lister{% endblock %}
+{% block title %}Candidature - Lister{% endblock %}
 
 {% block stylesheets %}
   <link href="{{ asset('bundles/mrmcburgergetajob/css/company.css') }}" type="text/css" rel="stylesheet" />
@@ -53,22 +53,20 @@
 {% block body %}
 <div class="container">
  <div class="hero-unit hero-unit-listcompany">
-    <h1>Lister les entreprises</h1>
+    <h1>Lister mes candidatures en cours</h1>
     <table class="table table-striped" id="list-company">
       <tr>
-        <th>Nom</th>
-        <th>Secteur</th>
-        <th>Adresse</th>
-        <th>E-mail</th>
-        <th>Téléphone</th>
+        <th>Date</th>
+        <th>Entreprise</th>
+        <th>Nom du contact</th>
+        <th>Date de réponse attendue</th>
       </tr>
-      {% for company in pager %}
+      {% for application in pager %}
       <tr>
-          <td><a href="{{ path('mrmcburger_getajob_show_company', { 'id': company.id }) }}">{{ company.name }}</a></td>
-          <td>{{ company.sector }}</td>
-          <td>{{company.address.number}} {{company.address.type}} {{company.address.name}}<br />{{company.address.additional}} {{company.address.zip}} {{company.address.city}}</td>
-          <td>{{ company.mail }}</td>
-          <td>{{ company.phone }}</td>
+          <td><a href="{{ path('mrmcburger_getajob_show_application', { 'id': application.id }) }}">{{ application.date|date('d/m/Y') }}</a></td>
+          <td>{{ application.company.name }}</td>
+          <td>{{ application.contactName }}</td>
+          <td>{{ application.replyDate|date('d/m/Y') }}</td>
       </tr>
       {% endfor %}
     </table>

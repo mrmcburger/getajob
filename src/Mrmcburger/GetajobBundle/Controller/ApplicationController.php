@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Mrmcburger\GetajobBundle\Entity\Application;
 use Mrmcburger\GetajobBundle\Form\ApplicationType;
 use Mrmcburger\GetajobBundle\Form\ApplicationDeleteType;
+use Pagerfanta\Pagerfanta;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 
 class ApplicationController extends Controller
 {
@@ -106,6 +108,23 @@ class ApplicationController extends Controller
         }
 
         return $this->redirect($this->generateUrl('mrmcburger_getajob_show_application', array('id' => $application->getId())));
+    }
+
+    public function listAction($page)
+    {
+        $today = date('Y-m-d');
+
+        $em    = $this->get('doctrine.orm.entity_manager');
+        $dql   = "SELECT a FROM MrmcburgerGetajobBundle:Application a where a.replyDate > '$today' order by a.date";
+        $query = $em->createQuery($dql);
+
+        $adapter = new DoctrineORMAdapter($query, true);
+        $pager   = new Pagerfanta($adapter);
+
+        $pager->setMaxPerPage(15);
+        $pager->setCurrentPage($page, true, true);
+
+        return $this->render('MrmcburgerGetajobBundle:Application:list.html.twig', array('pager' => $pager));
     }
 }
 ?>
