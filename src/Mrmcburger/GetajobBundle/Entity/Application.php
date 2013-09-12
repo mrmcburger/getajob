@@ -388,4 +388,9 @@ class Application
             $this->applicationLetter = null;
         }
     }
+
+    public function __toString()
+    {
+        return $this->company->getName().' '.$this->date->format('d/m/Y');
+    }
 }

@@ -5,9 +5,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
-use Mrmcburger\GetajobBundle\Entity\Application;
+use Mrmcburger\GetajobBundle\Entity\Interview;
 
-class ApplicationType extends AbstractType
+class InterviewType extends AbstractType
 {
 /**
      * Register mode
@@ -29,29 +29,26 @@ class ApplicationType extends AbstractType
         if($this->mode == self::REGISTER_MODE)
         {
             $builder
-                ->add('company', 'entity', array(
-                          'class' => 'MrmcburgerGetajobBundle:Company',
-                          'empty_value' => 'Choisissez une entreprise',
+                ->add('application', 'entity', array(
+                          'class' => 'MrmcburgerGetajobBundle:Application',
+                          'empty_value' => 'Choisissez une candidature',
                           'query_builder' => function(EntityRepository $er) {
-                                return $er->createQueryBuilder('c')
-                                               ->orderBy('c.name', 'ASC');
+                                return $er->createQueryBuilder('a')
+                                               ->orderBy('a.date', 'ASC');
                                 }))
-                ->add('date',                   'date', array('required' => true, 'label' => 'Date de candidature', 'widget' => 'single_text'))
-                ->add('cv',                      'file',  array('label' => 'CV', 'required' => false))
-                ->add('applicationLetter', 'file',  array('label' => 'Lettre de motivation', 'required' => false));
+                ->add('date',                   'date', array('required' => true, 'label' => 'Date d\'entretien', 'widget' => 'single_text'));
         }
 
         $builder
+            ->add('address',       new AddressType())
             ->add('contactName',      'text', array('required' => true, 'label' => 'Nom du contact'))
-            ->add('contactWay', 'choice', array('label' => 'Moyen de contact', 'choices' =>  Application::$candidatureType, 'required' => false))
-            ->add('replyWay', 'choice', array('label' => 'Moyen de réponse attendu', 'choices' =>  Application::$replyType, 'required' => false))
-            ->add('replyDate', 'date', array('required' => true, 'label' => 'Date de réponse attendue', 'widget' => 'single_text'))
             ->add(
                 'comments',
                  'textarea',
                  array(
                     'required' => false,
                     'label'       => 'Commentaires',
+
                     'attr'         => array(
                         'rows' => '5',
                         'cols'  => '35'
@@ -61,23 +58,24 @@ class ApplicationType extends AbstractType
 
             if($this->mode == self::REGISTER_MODE)
             {
-                 $builder->add('add_application', 'submit', array('label' => 'Ajouter'));
+                 $builder->add('add_interview', 'submit', array('label' => 'Ajouter'));
             }
             else
             {
-                $builder->add('add_application', 'submit', array('label' => 'Modifier'));
+                $builder->add('add_interview', 'submit', array('label' => 'Modifier'));
             }
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Mrmcburger\GetajobBundle\Entity\Application',
+            'data_class' => 'Mrmcburger\GetajobBundle\Entity\Interview',
+             'cascade_validation' => true
         ));
     }
 
     public function getName()
     {
-        return 'mrmcburger_getajobbundle_applicationtype';
+        return 'mrmcburger_getajobbundle_interviewtype';
     }
 }

@@ -1,0 +1,142 @@
+form#new_interview
+{
+    padding-top: 40px;
+}
+
+div#new_interview_left
+{
+    float: left;
+}
+
+div#new_interview_left_left
+{
+    float: left;
+    width: 200px;
+}
+
+div#new_interview_left_right
+{
+    float: right;
+    width: 430px;
+}
+
+div#new_interview_right_right
+{
+    float: left;
+    width: 340px;
+}
+
+div#new_interview_right_left
+{
+    float: left;
+    width: 200px;
+}
+
+.hero-unit-company
+{
+    width: 1170px;
+    height: 520px;
+}
+
+#show-interview
+{
+    padding-top: 30px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+#show-interview-header-left
+{
+    float: left;
+    width: 300px;
+    padding-left: 200px;
+}
+
+#show-interview-header
+{
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+
+#modify_interview #new_interview_left #new_interview_left_right
+{
+    padding-top: 14px;
+}
+
+#list-interview
+{
+    margin-top: 50px;
+}
+
+.hero-unit-listinterview
+{
+    width: 1170px;
+    height: 1000px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#mrmcburger_getajobbundle_interviewtype_date-label
+{
+    padding-top: 16px;
+}
+
+#newinterview-address-label
+{
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+#newinterview-address-widget
+{
+    padding-top: 45px;
+    padding-bottom: 20px;
+}
+
+#address-label
+{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#mrmcburger_getajobbundle_interviewtype_address_number-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_interviewtype_address_type-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_interviewtype_address_name-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_interviewtype_address_additional-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_interviewtype_address_zip-label
+{
+    padding-top: 15px;
+}
+
+#mrmcburger_getajobbundle_interviewtype_address_city-label
+{
+    padding-top: 15px;
+}
+
+#newinterview-address-label label
+{
+    padding-left: 15px;
+}
+
+.form-error
+{
+    color: red;
+    font-size: 11px;
+}

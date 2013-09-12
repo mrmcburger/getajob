@@ -2,10 +2,10 @@
 
 {% extends '::base.html.twig' %}
 
-{% block title %}Entreprise - Modifier{% endblock %}
+{% block title %}Entretien - Ajouter{% endblock %}
 
 {% block stylesheets %}
-  <link href="{{ asset('bundles/mrmcburgergetajob/css/company.css') }}" type="text/css" rel="stylesheet" />
+  <link href="{{ asset('bundles/mrmcburgergetajob/css/interview.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
 {% block sidebar %}
@@ -20,7 +20,7 @@
           <a class="brand" href="{{ path('mrmcburger_getajob_homepage') }}">GetAJob</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="dropdown active">
+              <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes Entreprises<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="{{ path('mrmcburger_getajob_new_company') }}">Ajouter</a></li>
@@ -36,7 +36,7 @@
                   <li><a href="{{ path('mrmcburger_getajob_history_application', { 'page': '1' }) }}) }}">Historique</a></li>
                 </ul>
               </li>
-              <li class="dropdown">
+              <li class="dropdown active">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes Entretiens<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="{{ path('mrmcburger_getajob_new_interview') }}">Ajouter</a></li>
@@ -55,24 +55,13 @@
 {% block body %}
 <div class="container">
  <div class="hero-unit hero-unit-company">
-  {% if company is null %}
-    <h1>Aucune entreprise trouvée</h1>
-  {% else %}
-      <h1>Modifier {{ company.name }}</h1>
-      <div id="show-company">
-        <div id="show-company-header">
-          <div id="show-company-header-left">
-            <button id="see-button" class="btn btn-primary">Voir</button>
-          </div>
-          <div id="show-company-header-right">
-             <button id="modify-button" class="btn btn-inverse" disabled>Modifier</button>
-          </div>
-        </div>
- <form id="modify_company" method="post" action="">
-        <div id="new_company_left">
-          <div id="new_company_left_left">
-            {{ form_label(form.sector) }}
-            <div id="newcompany-address-label">
+    <h1>Ajouter un entretien</h1>
+      <form id="new_interview" method="post" action=""}>
+        <div id="new_interview_left">
+          <div id="new_interview_left_left">
+            {{ form_label(form.application) }}
+            {{ form_label(form.date) }}
+            <div id="newinterview-address-label">
               <span id="address-label">Adresse :<br /></span>
               {{ form_label(form.address.number) }}
               {{ form_label(form.address.type) }}
@@ -81,59 +70,36 @@
               {{ form_label(form.address.zip) }}
               {{ form_label(form.address.city) }}
             </div>
-            {{ form_label(form.numbers) }}
-            {{ form_label(form.phone) }}
-            {{ form_label(form.mail) }}
-            {{ form_label(form.presentation) }}
-            {{ form_widget(form.add_company) }}
+            {{ form_widget(form.add_interview) }}
             {{ form_widget(form._token) }}
           </div>
-          <div id="new_company_left_right">
-            {{ form_widget(form.sector) }} {{ form_errors(form.sector) }}
-            <div id="newcompany-address-widget">
+          <div id="new_interview_left_right">
+            {{ form_widget(form.application) }} {{ form_errors(form.application) }}
+            {{ form_widget(form.date) }} {{ form_errors(form.date) }}
+            <div id="newinterview-address-widget">
               {{ form_widget(form.address.number) }} {{ form_errors(form.address.number) }}
               {{ form_widget(form.address.type) }} {{ form_errors(form.address.type) }}
               {{ form_widget(form.address.name) }} {{ form_errors(form.address.name) }}
               {{ form_widget(form.address.additional) }} {{ form_errors(form.address.additional) }}
               {{ form_widget(form.address.zip) }} {{ form_errors(form.address.zip) }}
               {{ form_widget(form.address.city) }} {{ form_errors(form.address.city) }}
-            </div>
-            {{ form_widget(form.numbers) }} {{ form_errors(form.numbers) }}
-            {{ form_widget(form.phone) }} {{ form_errors(form.phone) }}
-            {{ form_widget(form.mail) }} {{ form_errors(form.mail) }}
-            {{ form_widget(form.presentation) }} {{ form_errors(form.presentation) }}
+          </div>
           </div>
         </div>
-        <div id="new_company_right">
-          <div id="new_company_right_left">
-            {{ form_label(form.companycriteria.displacement) }}
-            {{ form_label(form.companycriteria.celebrity) }}
-            {{ form_label(form.companycriteria.missionInterest) }}
-            {{ form_label(form.companycriteria.salaryExpectation) }}
-            {{ form_label(form.companycriteria.workConditions) }}
-            {{ form_label(form.companycriteria.evolutionPossibilities) }}
+        <div id="new_interview_right">
+          <div id="new_interview_right_left">
+            {{ form_label(form.contactName) }}
+            {{ form_label(form.comments) }}
           </div>
-          <div id="new_company_right_right">
-            {{ form_widget(form.companycriteria.displacement) }} {{ form_errors(form.companycriteria.displacement) }}
-            {{ form_widget(form.companycriteria.celebrity) }} {{ form_errors(form.companycriteria.celebrity) }}
-            {{ form_widget(form.companycriteria.missionInterest) }} {{ form_errors(form.companycriteria.missionInterest) }}
-            {{ form_widget(form.companycriteria.salaryExpectation) }} {{ form_errors(form.companycriteria.salaryExpectation) }}
-            {{ form_widget(form.companycriteria.workConditions) }} {{ form_errors(form.companycriteria.workConditions) }}
-            {{ form_widget(form.companycriteria.evolutionPossibilities) }} {{ form_errors(form.companycriteria.evolutionPossibilities) }}
+          <div id="new_interview_right_right">
+            {{ form_widget(form.contactName) }} {{ form_errors(form.contactName) }}
+            {{ form_widget(form.comments) }} {{ form_errors(form.comments) }}
           </div>
         </div>
       </form>
-  {% endif %}
-  </div>
 </div>
 {% endblock %}
 
 {% block javascripts %}
-  <script type="text/javascript">
-     {% if company is not empty %}
-       var id_company= {{ company.id }};
-    {% endif %}
-  </script>
-  <script src="{{ asset('bundles/mrmcburgergetajob/js/company.js') }}" type="text/javascript" ></script>
+  <script src="{{ asset('bundles/mrmcburgergetajob/js/interview.js') }}" type="text/javascript" ></script>
 {% endblock %}
-

@@ -111,3 +111,9 @@ div#new_application_right_left
     font-size: 14px;
     font-weight: normal;
 }
+
+.form-error
+{
+    color: red;
+    font-size: 11px;
+}

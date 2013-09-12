@@ -2,7 +2,7 @@
 
 {% extends '::base.html.twig' %}
 
-{% block title %}Entreprise - Candidature{% endblock %}
+{% block title %}Candidature - Ajouter{% endblock %}
 
 {% block stylesheets %}
   <link href="{{ asset('bundles/mrmcburgergetajob/css/application.css') }}" type="text/css" rel="stylesheet" />
@@ -39,7 +39,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes Entretiens<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Ajouter</a></li>
+                  <li><a href="{{ path('mrmcburger_getajob_new_interview') }}">Ajouter</a></li>
                   <li><a href="#">Planning</a></li>
                 </ul>
               </li>

@@ -57,3 +57,11 @@ mrmcburger_getajob_list_application:
 mrmcburger_getajob_history_application:
     pattern:  /historyapplications/{page}
     defaults: { _controller: MrmcburgerGetajobBundle:Application:history }
+
+mrmcburger_getajob_new_interview:
+    pattern:  /newinterview
+    defaults: { _controller: MrmcburgerGetajobBundle:Interview:new }
+
+mrmcburger_getajob_get_interview_address:
+    pattern:  /getinterviewaddress/{applicationId}
+    defaults: { _controller: MrmcburgerGetajobBundle:Interview:getInterviewAddress }
