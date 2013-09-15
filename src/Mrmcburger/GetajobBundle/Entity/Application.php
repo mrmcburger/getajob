@@ -393,4 +393,9 @@ class Application
     {
         return $this->company->getName().' '.$this->date->format('d/m/Y');
     }
+
+    public function getName()
+    {
+        return $this->__toString();
+    }
 }

@@ -65,3 +65,7 @@ mrmcburger_getajob_new_interview:
 mrmcburger_getajob_get_interview_address:
     pattern:  /getinterviewaddress/{applicationId}
     defaults: { _controller: MrmcburgerGetajobBundle:Interview:getInterviewAddress }
+
+mrmcburger_getajob_show_interview:
+    pattern:  /showinterview/{id}
+    defaults: { _controller: MrmcburgerGetajobBundle:Interview:show }

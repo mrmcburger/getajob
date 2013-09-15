@@ -11,31 +11,32 @@ div#new_interview_left
 div#new_interview_left_left
 {
     float: left;
-    width: 200px;
+    width: 110px;
 }
 
 div#new_interview_left_right
 {
     float: right;
-    width: 430px;
+    width: 370px;
 }
 
 div#new_interview_right_right
 {
-    float: left;
+    float: right;
     width: 340px;
+    padding-right: 170px;
 }
 
 div#new_interview_right_left
 {
     float: left;
-    width: 200px;
+    width: 180px;
 }
 
-.hero-unit-company
+.hero-unit-interview
 {
     width: 1170px;
-    height: 520px;
+    height: 420px;
 }
 
 #show-interview

@@ -34,6 +34,21 @@ class InterviewController extends Controller
                'form' => $form->createView()));
     }
 
+    public function showAction($id)
+    {
+        $repository = $this->getDoctrine()
+                         ->getManager()
+                         ->getRepository('MrmcburgerGetajobBundle:Interview');
+
+        $interview = $repository->getInterview($id);
+
+        return $this->render('MrmcburgerGetajobBundle:Interview:show.html.twig',
+                                        array(
+                                            'interview' => $interview,
+                                        )
+                                );
+    }
+
     public function getInterviewAddressAction($applicationId)
     {
         $repository = $this->getDoctrine()
